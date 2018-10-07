@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c830345-274b-4250-8580-264b476b8277" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/nikola/rotate_list/Node.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/nikola/rotate_list/Rotatable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/nikola/rotate_list/RotationalLinkedList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Graph/nikola/rotate_list/RotationalLinkedList$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Graph/nikola/rotate_list/RotationalLinkedList$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Graph/nikola/rotate_list/RotationalLinkedList$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Graph/nikola/rotate_list/RotationalLinkedList$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Graph/nikola/rotate_list/RotationalLinkedList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Graph/nikola/rotate_list/RotationalLinkedList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nikola/rotate_list/RotationalLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nikola/rotate_list/RotationalLinkedList.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,21 +43,28 @@
       <file leaf-file-name="RotationalLinkedList.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/nikola/rotate_list/RotationalLinkedList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="574">
-              <caret line="454" column="54" lean-forward="true" selection-start-line="454" selection-start-column="54" selection-end-line="454" selection-end-column="54" />
+            <state relative-caret-position="732">
+              <caret line="441" lean-forward="true" selection-start-line="441" selection-end-line="441" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#LinkedList#0;class#LinkedList#0" />
+                <element signature="method#LinkedList#1;class#LinkedList#0" />
+                <element signature="method#LinkedList#2;class#LinkedList#0" />
+                <element signature="method#handleFirstAddition#0;class#LinkedList#0" />
+                <element signature="method#addFirst#0;class#LinkedList#0" />
+                <element signature="method#addLast#0;class#LinkedList#0" />
+                <element signature="method#deleteLast#0;class#LinkedList#0" />
+                <element signature="method#deleteFirst#0;class#LinkedList#0" />
                 <element signature="method#insertBefore#0;class#LinkedList#0" />
                 <element signature="method#insertAfter#0;class#LinkedList#0" />
+                <element signature="method#rotateLeftOnce#0;class#LinkedList#0" />
+                <element signature="method#rotateRightOnce#0;class#LinkedList#0" />
+                <element signature="method#rotateLeft#0;class#LinkedList#0" />
                 <element signature="method#rotateRight#0;class#LinkedList#0" />
                 <element signature="method#get#0;class#LinkedList#0" />
                 <element signature="method#getNodeAtPosition#0;class#LinkedList#0" />
                 <element signature="method#getNodeFromEnd#0;class#LinkedList#0" />
                 <element signature="method#getNodeFromStart#0;class#LinkedList#0" />
-                <element signature="e#7490#7491#0" expanded="true" />
-                <element signature="e#7524#7525#0" expanded="true" />
-                <element signature="e#7605#7606#0" expanded="true" />
-                <element signature="e#7637#7638#0" expanded="true" />
                 <element signature="method#toString#0;class#LinkedList#0" />
                 <element signature="method#toArrayList#0;class#LinkedList#0" />
                 <element signature="method#iterator#0;class#LinkedList#0" />
@@ -67,6 +76,7 @@
                 <element signature="method#requireNonNegative#0;class#LinkedList#0" />
                 <element signature="method#sort#0;class#LinkedList#0" />
                 <element signature="method#sort#1;class#LinkedList#0" />
+                <element signature="method#main#0;class#LinkedList#0" />
               </folding>
             </state>
           </provider>
@@ -256,6 +266,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="extract.method.default.visibility" value="private" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -313,6 +324,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1046" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -323,7 +335,7 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22680412" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.0" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -348,7 +360,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="3" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -604,21 +616,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/nikola/rotate_list/RotationalLinkedList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="574">
-          <caret line="454" column="54" lean-forward="true" selection-start-line="454" selection-start-column="54" selection-end-line="454" selection-end-column="54" />
+        <state relative-caret-position="732">
+          <caret line="441" lean-forward="true" selection-start-line="441" selection-end-line="441" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#LinkedList#0;class#LinkedList#0" />
+            <element signature="method#LinkedList#1;class#LinkedList#0" />
+            <element signature="method#LinkedList#2;class#LinkedList#0" />
+            <element signature="method#handleFirstAddition#0;class#LinkedList#0" />
+            <element signature="method#addFirst#0;class#LinkedList#0" />
+            <element signature="method#addLast#0;class#LinkedList#0" />
+            <element signature="method#deleteLast#0;class#LinkedList#0" />
+            <element signature="method#deleteFirst#0;class#LinkedList#0" />
             <element signature="method#insertBefore#0;class#LinkedList#0" />
             <element signature="method#insertAfter#0;class#LinkedList#0" />
+            <element signature="method#rotateLeftOnce#0;class#LinkedList#0" />
+            <element signature="method#rotateRightOnce#0;class#LinkedList#0" />
+            <element signature="method#rotateLeft#0;class#LinkedList#0" />
             <element signature="method#rotateRight#0;class#LinkedList#0" />
             <element signature="method#get#0;class#LinkedList#0" />
             <element signature="method#getNodeAtPosition#0;class#LinkedList#0" />
             <element signature="method#getNodeFromEnd#0;class#LinkedList#0" />
             <element signature="method#getNodeFromStart#0;class#LinkedList#0" />
-            <element signature="e#7490#7491#0" expanded="true" />
-            <element signature="e#7524#7525#0" expanded="true" />
-            <element signature="e#7605#7606#0" expanded="true" />
-            <element signature="e#7637#7638#0" expanded="true" />
             <element signature="method#toString#0;class#LinkedList#0" />
             <element signature="method#toArrayList#0;class#LinkedList#0" />
             <element signature="method#iterator#0;class#LinkedList#0" />
@@ -630,6 +649,7 @@
             <element signature="method#requireNonNegative#0;class#LinkedList#0" />
             <element signature="method#sort#0;class#LinkedList#0" />
             <element signature="method#sort#1;class#LinkedList#0" />
+            <element signature="method#main#0;class#LinkedList#0" />
           </folding>
         </state>
       </provider>

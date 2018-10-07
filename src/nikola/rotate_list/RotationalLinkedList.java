@@ -1,9 +1,12 @@
 package nikola.rotate_list;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
 
-import static java.lang.System.*;
-
+import static java.lang.System.out;
 
 public class RotationalLinkedList<E extends Comparable<E>>
                           implements Rotatable,Iterable<E> {
@@ -256,20 +259,6 @@ public class RotationalLinkedList<E extends Comparable<E>>
         return size;
     }
 
-    /**
-     * FOR TESTING ONLY
-     */
-    public Node<E> getFirst() {
-        return first;
-    }
-
-    /**
-     * FOR TESTING ONLY
-     */
-    public Node<E> getLast() {
-        return last;
-    }
-
     private Node<E> getNodeAtPosition(int position) {
         if (position < (size / 2)){
             return getNodeFromStart(position);
@@ -297,22 +286,6 @@ public class RotationalLinkedList<E extends Comparable<E>>
         return currentNode;
     }
 
-    // =======================================================================
-    //                                 Setters
-    // =======================================================================
-    /**
-     * FOR TESTING ONLY
-     */
-    public void setFirst(Node<E> first) {
-        this.first = first;
-    }
-
-    /**
-     * FOR TESTING ONLY
-     */
-    public void setLast(Node<E> last) {
-        this.last = last;
-    }
 
     // =======================================================================
     //                                 Conversions
@@ -357,7 +330,7 @@ public class RotationalLinkedList<E extends Comparable<E>>
     }
 
     // =======================================================================
-    //                                Iterator
+    //                                Iterators
     // =======================================================================
     @Override
     public Iterator<E> iterator() {
@@ -421,13 +394,6 @@ public class RotationalLinkedList<E extends Comparable<E>>
     // =======================================================================
     public static void main(String[] args) {
 
-
-//        RotationalLinkedList<Integer> rotationalLinkedList
-//                = new RotationalLinkedList<>(1,2,-5,2,0,-2);
-//        out.println("Original list: " + rotationalLinkedList);
-//
-//        out.println("Sorted list: " + rotationalLinkedList.sort());
-
         RotationalLinkedList<Integer> rotationalList = new RotationalLinkedList<>();
         out.println("Empy list: " + rotationalList);
 
@@ -453,5 +419,24 @@ public class RotationalLinkedList<E extends Comparable<E>>
 
         rotationalList.rotateLeft(1_000);
         out.println("Rotate left: " + rotationalList);
+
+        Iterator<Integer> reverseIterator = rotationalList.reverseIterator();
+
+        while (reverseIterator.hasNext()){
+            Integer element = reverseIterator.next();
+            out.print(element + ", ");
+        }
+        out.println();
+
+        out.println("sorted: " + rotationalList.sort());
+
+        out.println("Element at index 2: " + rotationalList.get(2));
+
+        rotationalList.insertBefore(1,10);
+        rotationalList.insertBefore(3,20);
+
+        out.println("After inserting: " + rotationalList);
+
+
     }
 }
