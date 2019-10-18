@@ -105,8 +105,6 @@ public class ListGraph<E extends Comparable<E>> {
     }
 
 
-
-
     public MatrixGraph convertToMatrixGraph(){
         int numOfVertices = vertices.size();
         double[][] graph = new double[numOfVertices][numOfVertices];
@@ -121,25 +119,74 @@ public class ListGraph<E extends Comparable<E>> {
     }
 
     public double getMinDistanceDijkstra(E start,E end){
-        Vertex<E> source = vertices.get(indexes.get(start));
-        Vertex<E> destination = vertices.get(indexes.get(end));
-        Dijkstra<E> dijkstra = new Dijkstra<>();
 
-        dijkstra.run(this, source);
+        Vertex<E> destination = vertices.get(indexes.get(end));
+
+        runDijkstra(start);
 
         return destination.getMinDistance();
     }
 
-    public double getMinDistanceBellmanFord(E start,E end){
+    private void runDijkstra(E start) {
         Vertex<E> source = vertices.get(indexes.get(start));
-        Vertex<E> destination = vertices.get(indexes.get(end));
+
+        Dijkstra<E> dijkstra = new Dijkstra<>();
+
+        dijkstra.run(this, source);
+    }
+
+    public List<Vertex<E>> getMinPathDijkstra(E start,E end){
+        List<Vertex<E>> path = new ArrayList<>();
+
+        runDijkstra(start);
+
+        Vertex<E> currentVertex = vertices.get(indexes.get(end));
+
+        while (currentVertex.getPredecessor() != null){
+            path.add(currentVertex);
+
+            currentVertex = currentVertex.getPredecessor();
+        }
+
+        return path;
+    }
+
+    public double getMinDistanceBellmanFord(E start,E end){
+        Vertex<E> source = this.getVertex(start);
+        Vertex<E> destination = this.getVertex(end);
 
         BellmanFord<E> bellmanFord = new BellmanFord<>();
 
         if (bellmanFord.run(this, source))
             return destination.getMinDistance();
         else{
+            System.err.println("Bellman Ford Failed! Cannot return min distance!");
             return BELLMAN_FORD_ERROR_CODE;
+        }
+    }
+
+    public List<Vertex<E>> getMinPathBellmanFord(E start,E end){
+        Vertex<E> source = this.getVertex(start);
+
+        BellmanFord<E> bellmanFord = new BellmanFord<>();
+
+        if (bellmanFord.run(this, source)) {
+
+            List<Vertex<E>> path = new ArrayList<>();
+
+            Vertex<E> currentVertex = this.getVertex(end);
+
+            while (currentVertex.getPredecessor() != null){
+                path.add(currentVertex);
+
+                currentVertex = currentVertex.getPredecessor();
+            }
+
+            return path;
+        }
+        else{
+            System.err.println("Bellman Ford Failed! Cannot return min path!");
+            return Collections.emptyList();
         }
     }
 

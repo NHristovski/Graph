@@ -1,5 +1,7 @@
 package nikola.graph.matrix_graph;
 
+import java.util.Arrays;
+
 public class MatrixGraph{
 
     double[][] graph;
@@ -46,12 +48,21 @@ public class MatrixGraph{
     public String toString() {
         if (graph.length > 0) {
             StringBuilder stringBuilder = new StringBuilder();
+            int count = graph[0].length;
 
+            for (int i = 0; i < graph[0].length; i++) {
+                stringBuilder.append("      ").append(i);
+            }
+            stringBuilder.append("\n");
+
+            int rowNumer = 0;
             for (double[] row : graph) {
+                stringBuilder.append(rowNumer + "    ");
                 for (double elem : row) {
-                    stringBuilder.append(elem).append(" ");
+                    stringBuilder.append(elem).append("    ");
                 }
                 stringBuilder.append("\n");
+                rowNumer++;
             }
             return stringBuilder.toString();
         }

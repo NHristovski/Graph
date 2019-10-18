@@ -15,12 +15,11 @@ public class Dijkstra<E extends Comparable<E>>{
     public Dijkstra(){
     }
 
-    private Hashtable<Vertex<E>, List<Edge<E>>> makeHashtable(ListGraph<E> graph){
+    private Hashtable<Vertex<E>, List<Edge<E>>> createEdgesHashtable(ListGraph<E> graph){
         Hashtable<Vertex<E>, List<Edge<E> > > table = new Hashtable<>();
-        List<Edge<E>> lst;
+
         for (Vertex<E> v : graph.getVertices()){
-            lst = new LinkedList<>();
-            table.put(v,lst);
+            table.put(v,new LinkedList<>());
         }
 
         for (Edge<E> e : graph.getEdges()){
@@ -32,39 +31,43 @@ public class Dijkstra<E extends Comparable<E>>{
 
     public void run(ListGraph<E> graph, Vertex<E> startVertex){
 
-        if (graph == null || startVertex == null)
+        if (graph == null || startVertex == null) {
+            System.err.println("Either graph or startVertex is null!");
+            System.err.println("graph: " + graph);
+            System.err.println("startVertex: " + startVertex);
             return;
+        }
 
         for (Vertex<E> v : graph.getVertices()){
-            v.setMinDistance(Double.MIN_VALUE);
+            v.setMinDistance(Double.MAX_VALUE);
             v.setPredecessor(null);
         }
 
-        double result = Double.MAX_VALUE;
+        startVertex.setMinDistance(0d);
 
-        for (Edge<E> edge : graph.getEdges()){
-            if (edge.equals(new Edge<E>(startVertex,startVertex,0))){
-                result = edge.getWeight();
-            }
-        }
-        startVertex.setMinDistance(result);
         PriorityQueue<Vertex<E>> queue = new PriorityQueue<>(graph.getVertices());
-        Hashtable<Vertex<E>, List<Edge<E>>> table = makeHashtable(graph);
+
+        Hashtable<Vertex<E>, List<Edge<E>>> edges = createEdgesHashtable(graph);
 
         while (!queue.isEmpty()){
-            Vertex<E> u = queue.poll();
+            Vertex<E> currentVertex = queue.poll();
 
-            for (Edge<E> e : table.get(u)){
-                Vertex<E> v = e.getDestination();
-                if (v.getMinDistance() < Math.min(u.getMinDistance(),e.getWeight())){
-                    v.setMinDistance(Math.min(u.getMinDistance(),e.getWeight()));
-                    v.setPredecessor(u);
-                    queue.add(v);
+            List<Edge<E>> currentEdges = edges.get(currentVertex);
+
+            for (Edge<E> edge : currentEdges){
+
+                Vertex<E> destinationVertex = edge.getDestination();
+
+                double newDistance = currentVertex.getMinDistance() + edge.getWeight();
+
+                if (destinationVertex.getMinDistance() > newDistance){
+
+                    destinationVertex.setMinDistance(newDistance);
+                    destinationVertex.setPredecessor(currentVertex);
+                    queue.add(destinationVertex);
                 }
             }
         }
-
     }
-
 }
 
